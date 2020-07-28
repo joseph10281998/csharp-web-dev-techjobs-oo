@@ -7,20 +7,14 @@ namespace TechJobsOO
     {
         public int Id { get; }
         private static int nextId = 1;
-        private int v1;
-        private int v2;
-        private string v3;
-        private string v4;
-        private Location location;
-        private PositionType positionType;
-        private CoreCompetency coreCompetency;
+        
 
         public string Name { get; set; }
         public Employer Employer { get; set; }
         public Location EmployerLocation { get; set; }
         public PositionType JobType { get; set; }
         public CoreCompetency JobCoreCompetency { get; set; }
-        public Location IsEmpty { get; private set; }
+        
 
         // TODO: Add the two necessary constructors. //Completed//
 
@@ -39,18 +33,7 @@ namespace TechJobsOO
             JobCoreCompetency = jobCoreCompetency;
         }
 
-        public Job(int v1, int v2, string v3, string v4, Employer employer, Location location, PositionType positionType, CoreCompetency coreCompetency)
-        {
-            this.v1 = v1;
-            this.v2 = v2;
-            this.v3 = v3;
-            this.v4 = v4;
-            Employer = employer;
-            this.location = location;
-            this.positionType = positionType;
-            this.coreCompetency = coreCompetency;
-        }
-
+        
         // TODO: Generate Equals() and GetHashCode() methods. //Completed//
 
         public override bool Equals(object obj)
@@ -75,10 +58,10 @@ namespace TechJobsOO
         public override string ToString()
         {
             if (string.IsNullOrEmpty(Name)
-                && (Employer == null || string.IsNullOrEmpty(Employer.Value))
-                && (EmployerLocation == null || string.IsNullOrEmpty(EmployerLocation.Value))
-                && (JobType == null || string.IsNullOrEmpty(JobType.Value))
-                && (JobCoreCompetency == null || string.IsNullOrEmpty(JobCoreCompetency.Value)))
+                && (string.IsNullOrEmpty(Employer.Value))
+                && (string.IsNullOrEmpty(EmployerLocation.Value))
+                && (string.IsNullOrEmpty(JobType.Value))
+                && (string.IsNullOrEmpty(JobCoreCompetency.Value)))
             {
                 return "\n" + "ID: " + Id + "\nData not available" + "\n";
             }
