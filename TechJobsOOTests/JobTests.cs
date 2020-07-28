@@ -56,40 +56,20 @@ namespace TechJobsOO.Tests
         {
             Job job5 = new Job("Product tester", new Employer("ACME"), new Location("Desert"), new PositionType("Quality control"), new CoreCompetency("Persistence"));
 
-            //Assert.AreEqual("\nID: 1\nName: Product tester\nEmployer: ACME\nLocation: Desert\nPosition Type: Quality control\nCore Competency: Persistence\n", job1.ToString());
-            Assert.IsTrue(job5.ToString().Contains("ID: 5"));
-            Assert.IsTrue(job5.ToString().Contains("Name: Product tester"));
-            Assert.IsTrue(job5.ToString().Contains("Employer: ACME"));
-            Assert.IsTrue(job5.ToString().Contains("Location: Desert"));
-            Assert.IsTrue(job5.ToString().Contains("Position Type: Quality control"));
-            Assert.IsTrue(job5.ToString().Contains("Core Competency: Persistence"));
-
-            //Assert.AreEqual(job1.Id.ToString(), "ID: 5");
-            //Assert.AreEqual(job1.Name.ToString(), "Name: Product tester");
-            //Assert.AreEqual(job1.Employer.ToString(), "Employer: ACME");
-            //Assert.AreEqual(job1.EmployerLocation.ToString(), "Location: Desert");
-            //Assert.AreEqual(job1.JobType.ToString(), "Position Type: Quality control");
-            //Assert.AreEqual(job1.JobCoreCompetency.ToString(), "Core Competency: Persistence");
+            Assert.AreEqual("Name: Product tester", "Name: " + job5.Name.ToString());
+            Assert.AreEqual("Employer: ACME", "Employer: " + job5.Employer.ToString());
+            Assert.AreEqual("Location: Desert", "Location: " + job5.EmployerLocation.ToString());
+            Assert.AreEqual("Position Type: Quality control", "Position Type: " + job5.JobType.ToString());
+            Assert.AreEqual("CoreCompetency: Persistence", "CoreCompetency: " + job5.JobCoreCompetency.ToString());
         }
 
 
         [TestMethod]
         public void TestJobsToStringContainsNullProperty()  //null condition
         {
-            Job job6 = new Job(); // Job("Product tester", new Employer("ACME"), new Location("Desert"), new PositionType("Quality control"), new CoreCompetency("Persistence"));
+            Job job6 = new Job("", new Employer("ACME"), new Location("Desert"), new PositionType("Quality control"), new CoreCompetency("Persistence"));
 
-            Assert.IsTrue(job6.ToString().Contains("Name: Data not available"));
-            Assert.IsTrue(job6.ToString().Contains("Employer: Data not available"));
-            Assert.IsTrue(job6.ToString().Contains("Location: Data not available"));
-            Assert.IsTrue(job6.ToString().Contains("Position Type: Data not available"));
-            Assert.IsTrue(job6.ToString().Contains("Core Competency: Data not available"));
-
-            //Assert.AreEqual(job1.Id.ToString(), "ID: 5");
-            //Assert.AreEqual(job1.Name.ToString(), "Name: Product tester");
-            //Assert.AreEqual(job1.Employer.ToString(), "Employer: ACME");
-            //Assert.AreEqual(job1.Employer.ToString(), "Location: Desert");
-            //Assert.AreEqual(job1.JobType.ToString(), "Position Type: Quality control");
-            //Assert.AreEqual(job1.JobCoreCompetency.ToString(), "Core Competency: Persistence");
+            Assert.AreEqual("", job6.Name.ToString());            
         }
     }
 }
