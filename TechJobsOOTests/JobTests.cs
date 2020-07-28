@@ -56,20 +56,25 @@ namespace TechJobsOO.Tests
         {
             Job job5 = new Job("Product tester", new Employer("ACME"), new Location("Desert"), new PositionType("Quality control"), new CoreCompetency("Persistence"));
 
-            Assert.AreEqual("Name: Product tester", "Name: " + job5.Name.ToString());
-            Assert.AreEqual("Employer: ACME", "Employer: " + job5.Employer.ToString());
-            Assert.AreEqual("Location: Desert", "Location: " + job5.EmployerLocation.ToString());
-            Assert.AreEqual("Position Type: Quality control", "Position Type: " + job5.JobType.ToString());
-            Assert.AreEqual("CoreCompetency: Persistence", "CoreCompetency: " + job5.JobCoreCompetency.ToString());
+            string testOutput = "\n" + "ID: 5" + "\nName: Product tester" + "\nEmployer: ACME" +
+                                "\nLocation: Desert" + "\nPosition Type: Quality control" +
+                                "\nCore Competency: Persistence" + "\n";
+
+            Assert.AreEqual(testOutput, job5.ToString());
+            
         }
 
 
         [TestMethod]
         public void TestJobsToStringContainsNullProperty()  //null condition
         {
-            Job job6 = new Job("", new Employer("ACME"), new Location("Desert"), new PositionType("Quality control"), new CoreCompetency("Persistence"));
+            Job job6 = new Job("", new Employer(""), new Location("Desert"), new PositionType("Quality control"), new CoreCompetency("Persistence"));
 
-            Assert.AreEqual("", job6.Name.ToString());            
+            string testOutput = "\n" + "ID: 6" + "\nName: Data not available" + "\nEmployer: Data not available" +
+                                "\nLocation: Desert" + "\nPosition Type: Quality control" +
+                                "\nCore Competency: Persistence" + "\n";
+
+            Assert.AreEqual(testOutput, job6.ToString());            
         }
     }
 }
