@@ -1,5 +1,5 @@
 ﻿using System;
-
+using System.Collections.Generic;
 
 namespace TechJobsOO
 {
@@ -74,20 +74,78 @@ namespace TechJobsOO
 
         public override string ToString()
         {
-            //var jobString = "" + "\nID: " + Id;
-            //if (string.IsNullOrEmpty(Name))
-            //    jobString += "Name: Data not available";
-            //else
-            //{
-            
-            return "" 
-                + "\nID: " + Id 
-                + "\nName: " + ((Name == null || Name == "") ? "Data not available" : Name.ToString()) 
-                + "\nEmployer: " + ((Employer == null || Employer.Value == "") ? "Data not available" : Employer.ToString())  
-                + "\nLocation: " + ((EmployerLocation == null || EmployerLocation.Value == "") ? "Data not available" : EmployerLocation.ToString()) 
-                + "\nPosition Type: " + ((JobType == null || JobType.Value == "") ? "Data not available" : JobType.ToString()) 
-                + "\nCore Competency: " + ((JobCoreCompetency == null || JobCoreCompetency.Value == "") ? "Data not available" : JobCoreCompetency.ToString()) 
-                + "\n";
+            if (string.IsNullOrEmpty(Name)
+                && (Employer == null || string.IsNullOrEmpty(Employer.Value))
+                && (EmployerLocation == null || string.IsNullOrEmpty(EmployerLocation.Value))
+                && (JobType == null || string.IsNullOrEmpty(JobType.Value))
+                && (JobCoreCompetency == null || string.IsNullOrEmpty(JobCoreCompetency.Value)))
+            {
+                return "\n" + "ID: " + Id + "\nData not available" + "\n";
+            }
+            else
+            {
+                string Name1;
+
+                if (!string.IsNullOrEmpty(Name))
+                {
+                    Name1 = Name;
+                }
+                else
+                {
+                    Name1 = "Data not available";
+                }
+
+                string Employer1;
+
+                if (!string.IsNullOrEmpty(Employer.Value))
+                {
+                    Employer1 = Employer.Value;
+                }
+                else
+                {
+                    Employer1 = "Data not available";
+                }
+
+                string EmployerLocation1;
+
+                if (!string.IsNullOrEmpty(EmployerLocation.Value))
+                {
+                    EmployerLocation1 = EmployerLocation.Value;
+                }
+                else
+                {
+                    EmployerLocation1 = "Data not available";
+                }
+
+                string JobType1;
+
+                if (!string.IsNullOrEmpty(JobType.Value))
+                {
+                    JobType1 = JobType.Value;
+                }
+                else
+                {
+                    JobType1 = "Data not available";
+                }
+
+                string JobCoreCompetency1;
+
+                if (!string.IsNullOrEmpty(JobCoreCompetency.Value))
+                {
+                    JobCoreCompetency1 = JobCoreCompetency.Value;
+                }
+                else
+                {
+                    JobCoreCompetency1 = "Data not available";
+                }
+
+                return "\n" + "ID: " + Id +
+                        "\nName: " + Name1 +
+                        "\nEmployer: " + Employer1 +
+                        "\nLocation: " + EmployerLocation1 +
+                        "\nPosition Type: " + JobType1 +
+                        "\nCore Competency: " + JobCoreCompetency1 + "\n";
+            }
         }
     }
 }
